@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="768px" viewBox="0 0 1024 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Tablet</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Tablet" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path id="Line" d="M710,282.5 L658.5,282.5 L653.5,282.5 L653.5,272.5 L658.5,272.5 L710,272.5 L710,250.5 L764,277.5 L710,304.5 L710,282.5 Z" fill="#3D4852" fill-rule="nonzero"></path>
+        <path id="Line" d="M710,472.5 L658.5,472.5 L653.5,472.5 L653.5,462.5 L658.5,462.5 L710,462.5 L710,440.5 L764,467.5 L710,494.5 L710,472.5 Z" fill="#3D4852" fill-rule="nonzero"></path>
+        <path id="Line" d="M360,382.5 L308.5,382.5 L303.5,382.5 L303.5,372.5 L308.5,372.5 L360,372.5 L360,350.5 L414,377.5 L360,404.5 L360,382.5 Z" fill="#3D4852" fill-rule="nonzero"></path>
+        <g id="State" transform="translate(776.000000, 89.000000)">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="5" fill="#3D4852" fill-rule="nonzero" cx="100" cy="100" r="102.5"></circle>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="16.094" y="109">Messages</tspan>
+            </text>
+        </g>
+        <g id="State" transform="translate(451.000000, 272.000000)">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="5" fill="#3D4852" fill-rule="nonzero" cx="100" cy="100" r="102.5"></circle>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="8.318" y="109">Repository</tspan>
+            </text>
+        </g>
+        <g id="State" transform="translate(776.000000, 472.000000)">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="5" fill="#3D4852" fill-rule="nonzero" cx="100" cy="100" r="102.5"></circle>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="8.894" y="109">Dispatcher</tspan>
+            </text>
+        </g>
+        <g id="State" transform="translate(60.000000, 272.000000)">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="5" fill="#3D4852" fill-rule="nonzero" cx="100" cy="100" r="102.5"></circle>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="10.064" y="109">Aggregate</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

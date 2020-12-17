@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="768px" viewBox="0 0 1024 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Tablet</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M100,65 L0,65 L0,35 L100,35 L100,65 Z M100,70 L100,92 C100,96.418278 96.418278,100 92,100 L8,100 C3.581722,100 5.41083001e-16,96.418278 0,92 L0,70 L100,70 Z M100,30 L0,30 L0,8 C-5.41083001e-16,3.581722 3.581722,8.11624501e-16 8,0 L92,0 C96.418278,-8.11624501e-16 100,3.581722 100,8 L100,30 Z M85,90 C87.7614237,90 90,87.7614237 90,85 C90,82.2385763 87.7614237,80 85,80 C82.2385763,80 80,82.2385763 80,85 C80,87.7614237 82.2385763,90 85,90 Z M85,55 C87.7614237,55 90,52.7614237 90,50 C90,47.2385763 87.7614237,45 85,45 C82.2385763,45 80,47.2385763 80,50 C80,52.7614237 82.2385763,55 85,55 Z M85,20 C87.7614237,20 90,17.7614237 90,15 C90,12.2385763 87.7614237,10 85,10 C82.2385763,10 80,12.2385763 80,15 C80,17.7614237 82.2385763,20 85,20 Z" id="path-1"></path>
+        <filter x="-13.0%" y="-12.0%" width="126.0%" height="126.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.4 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Tablet" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="State" transform="translate(41.000000, 36.000000)">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="5" fill="#3D4852" fill-rule="nonzero" cx="100" cy="100" r="102.5"></circle>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="56.594" y="109">State</tspan>
+            </text>
+        </g>
+        <g id="database" transform="translate(32.000000, 196.000000)" fill-rule="nonzero">
+            <g id="Combined-Shape">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <path stroke="#FFFFFF" stroke-width="5" d="M102.5,67.5 L-2.5,67.5 L-2.5,32.5 L102.5,32.5 L102.5,67.5 Z M102.5,67.5 L102.5,92 C102.5,97.7989899 97.7989899,102.5 92,102.5 L8,102.5 C2.20101013,102.5 -2.5,97.7989899 -2.5,92 L-2.5,67.5 L102.5,67.5 Z M102.5,32.5 L-2.5,32.5 L-2.5,8 C-2.5,2.20101013 2.20101013,-2.5 8,-2.5 L92,-2.5 C97.7989899,-2.5 102.5,2.20101013 102.5,8 L102.5,32.5 Z M85,87.5 C86.3807119,87.5 87.5,86.3807119 87.5,85 C87.5,83.6192881 86.3807119,82.5 85,82.5 C83.6192881,82.5 82.5,83.6192881 82.5,85 C82.5,86.3807119 83.6192881,87.5 85,87.5 Z M85,52.5 C86.3807119,52.5 87.5,51.3807119 87.5,50 C87.5,48.6192881 86.3807119,47.5 85,47.5 C83.6192881,47.5 82.5,48.6192881 82.5,50 C82.5,51.3807119 83.6192881,52.5 85,52.5 Z M85,17.5 C86.3807119,17.5 87.5,16.3807119 87.5,15 C87.5,13.6192881 86.3807119,12.5 85,12.5 C83.6192881,12.5 82.5,13.6192881 82.5,15 C82.5,16.3807119 83.6192881,17.5 85,17.5 Z" fill="#BE2323" fill-rule="evenodd"></path>
+            </g>
+        </g>
+    </g>
+</svg>

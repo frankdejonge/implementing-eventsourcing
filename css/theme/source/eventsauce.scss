@@ -1,0 +1,156 @@
+/**
+ * A simple theme for reveal.js presentations, similar
+ * to the default theme. The accent color is darkblue.
+ *
+ * This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+ * reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway|Varela+Round);
+section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
+  color: #3d4852; }
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Raleway', sans-serif;
+$mainColor: #3d4852;
+$headingFont: 'Varela Round', Impact, sans-serif;
+$headingColor: #3d4852;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: #f8fafc;
+$linkColor: #00008B;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+body {
+  position: relative; background-color: #f8fafc; }
+
+body::before {
+  z-index: -1;
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(-180deg, rgba(241, 245, 248, .4) 0%, rgba(241, 245, 248, 1) 100%), url('../../static/squares.svg') repeat center center;
+}
+
+header span span, .text-red, .reveal .text-red {
+  color: #BE2323;
+}
+
+.reveal [data-background-color="#3d4852"] blockquote .text-red {
+  background: #BE2323;
+  color: white;
+  padding-left: .15em;
+  padding-right: .15em;
+  transform: rotate(-5deg) skew(-5deg) !important;
+}
+
+.reveal blockquote {
+  text-align: left;
+  font-size: 1.35em;
+  font-weight: bold;
+  font-style: normal;
+  background: none;
+  box-shadow: none;
+}
+
+.reveal pre {
+  font-size: .5em;
+  //line-height: .8rem;
+}
+
+.reveal pre code {
+  max-height: initial;
+}
+
+.reveal blockquote.smaller {
+  font-size: 1.2em;
+}
+
+.reveal blockquote.smaller span {
+  white-space: pre;
+}
+
+.reveal [data-background-color="#3d4852"] blockquote .text-white {
+  color: rgba(255, 255, 255, .8);
+  background: rgba(0, 0, 0, .5);
+  padding-left: .15em;
+  padding-right: .15em;
+  transform: rotate(-5deg) skew(-5deg) !important;
+}
+
+.reveal pre code, .reveal pre {
+  box-shadow: none;
+  height: 100%;
+}
+
+#script-result {
+  opacity: 1;
+  font-family: "Lato", sans-serif;
+  transition: opacity .35s;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-size: 3em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 100;
+  background: rgba(34, 41, 47, .30);
+  //background: rgba(255, 255, 255, .70);
+  align-items: center;
+  align-content: center;
+}
+
+#script-result pre {
+  padding: 2em;
+  font-size: 2rem;
+  margin: 0;
+  color: #22292f;
+  background: #fff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, .3);
+}
+
+#script-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 20px;
+  width: 20px;
+  background: #BE2323;
+  z-index: 999;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.script-result-side {
+  flex-grow: 1;
+}
+
+.hidden {
+  opacity: 0 !important;
+  display: none !important;
+}

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="768px" viewBox="0 0 1024 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>Tablet</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Tablet" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Event" transform="translate(69.000000, 61.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 1.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(291.000000, 61.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 2.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(513.000000, 61.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 3.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(735.000000, 61.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 4.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(69.000000, 61.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 1.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(291.000000, 61.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 2.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(513.000000, 61.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 3.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(735.000000, 61.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 4.</tspan>
+            </text>
+        </g>
+        <g id="Aggregate-ID" transform="translate(42.000000, 23.000000)">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="5" fill="#BE2323" fill-rule="nonzero" cx="35" cy="35" r="32.5"></circle>
+            <text id="A" font-family="VarelaRound-Regular, Varela Round" font-size="51" font-weight="normal" fill="#FFFFFF">
+                <tspan x="16.477" y="51">A</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(69.000000, 321.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 1.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(291.000000, 321.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 2.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(513.000000, 321.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 3.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(735.000000, 321.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 4.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(69.000000, 321.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 1.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(291.000000, 321.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 2.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(513.000000, 321.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 3.</tspan>
+            </text>
+        </g>
+        <g id="Event" transform="translate(735.000000, 321.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" stroke-width="5" fill="#189044" fill-rule="nonzero" x="-2.5" y="-2.5" width="207" height="205"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="31.916" y="109">Event 4.</tspan>
+            </text>
+        </g>
+        <g id="Aggregate-ID" transform="translate(42.000000, 283.000000)">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="5" fill="#BE2323" fill-rule="nonzero" cx="35" cy="35" r="32.5"></circle>
+            <text id="A" font-family="VarelaRound-Regular, Varela Round" font-size="51" font-weight="normal" fill="#FFFFFF">
+                <tspan x="17.8285" y="51">B</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

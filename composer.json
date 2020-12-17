@@ -1,0 +1,12 @@
+{
+    "name": "frankdejonge/implementing-event-sourcing",
+    "require": {
+        "eventsauce/eventsauce": "^0.8.2"
+    },
+    "authors": [
+        {
+            "name": "Frank de Jonge",
+            "email": "info@frenky.net"
+        }
+    ]
+}

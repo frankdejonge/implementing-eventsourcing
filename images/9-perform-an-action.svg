@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="768px" viewBox="0 0 1024 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>Tablet</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Tablet" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="State" transform="translate(44.000000, 41.000000)">
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="5" fill="#3D4852" fill-rule="nonzero" cx="100" cy="100" r="102.5"></circle>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#FFFFFF">
+                <tspan x="35.93" y="109">State 0.</tspan>
+            </text>
+        </g>
+        <g id="Action" transform="translate(406.000000, 34.000000)">
+            <rect id="Rectangle" stroke="#3D4852" stroke-width="5" fill="#FFFFFF" fill-rule="nonzero" transform="translate(106.066017, 106.066017) rotate(-315.000000) translate(-106.066017, -106.066017) " x="28.5660172" y="28.5660172" width="155" height="155" rx="8"></rect>
+            <text id="Label" font-family="VarelaRound-Regular, Varela Round" font-size="36" font-weight="normal" fill="#3D4852">
+                <tspan x="49.93" y="115">Action</tspan>
+            </text>
+        </g>
+        <path id="Line" d="M385.5,141.5 L341.5,119.5 L341.5,163.5 L385.5,141.5 Z M273.5,145.5 L345.5,145.5 L349.5,145.5 L349.5,137.5 L345.5,137.5 L273.5,137.5 L269.5,137.5 L269.5,145.5 L273.5,145.5 Z" fill="#3D4852" fill-rule="nonzero"></path>
+    </g>
+</svg>
