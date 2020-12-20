@@ -9,7 +9,9 @@
   "license": "MIT",
   "scripts": {
     "test": "gulp test",
-    "start": "gulp serve",
+    "start": "concurrently --kill-others \"npm run serve\" \"npm run script-proxy\"",
+    "script-proxy": "node server.js",
+    "serve": "gulp serve",
     "build": "gulp"
   },
   "author": {
@@ -38,6 +40,7 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-transform-html-import-to-string": "0.0.1",
     "colors": "^1.4.0",
+    "concurrently": "^5.3.0",
     "core-js": "^3.6.5",
     "fitty": "^2.3.0",
     "glob": "^7.1.6",

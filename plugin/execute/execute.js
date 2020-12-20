@@ -46,7 +46,7 @@ var RevealExecute = window.RevealExecute = (function() {
                 if (!element || !element.hasAttribute('data-filename')) return;
 
                 let script = element.getAttribute('data-filename');
-                fetch(buildUrl('http://localhost:8080/execute', {
+                fetch(buildUrl('http://localhost:9001/execute', {
                     bin: 'php',
                     script: `scripts/${script}`,
                 }), {

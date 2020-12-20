@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<title>reveal.js</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -38,15 +41,16 @@
 <!--    </header>-->
     <div class="reveal">
         <div class="slides">
-            <section data-title="Event<span>Sourcing</span> at PHPBenelux">
+            <section data-background-image="images/rover.jpg">
+                <h2 style="color: #fff; text-blink: 1"><br/><br/><br/><br/>Look at a cute dog while you wait.</h2>
+            </section>
+            <section>
                 <h2>
                     Implementing<br/>
                     Event<span class="text-red">Sourcing</span>
                 </h2>
-                <h3>in PHP</h3>
+                <h3>Tech Talks @ Mollie</h3>
             </section>
-
-            <section data-background-image="images/how-its-made.jpg"></section>
 
             <section data-background-color="#3d4852">
                 <blockquote>
@@ -56,30 +60,28 @@
                 </blockquote>
             </section>
 
-            <!--                <section>-->
-            <!--                    <img src="static/logo.svg" width="200px" alt=""/>-->
-            <!--                    <h3 style="font-weight: 400;">Event<span class="text-red">Sauce</span>.</h3>-->
-            <!--                    <p style="padding: 0 4.5em;">A pragmatic event sourcing library for PHP with a focus on developer&nbsp;experience.</p>-->
-            <!--                </section>-->
-
-            <!--<section data-background-color="#3d4852">-->
-            <!--<img src="images/marijn.jpg" class="rounded"/>-->
-            <!--<h3 style="color: white;">@huizendveld</h3>-->
-            <!--</section>-->
-
             <section data-background-color="#3d4852">
                 <blockquote>
                     <span class="text-rd">EventSourcing</span> is<br/>
-                    not <span class="text-red">hard</span>, but it<br/>
-                    is <span class="text-red">complex</span>.<br/>
+                    not <span class="text-red">hard</span>, but<br/>
+                    <span class="text-red">learning</span> it is.<br/>
                 </blockquote>
             </section>
 
             <section data-background-color="#3d4852">
                 <blockquote>
-                    <span class="text-rd">Learning</span> EventSourcing<br/>
-                    is pretty <span class="text-red">hard</span><br/>
-                    because it is <span class="text-red">different</span>.<br/>
+                    EventSourcing is a technique where decisions are made based on past events, resulting in newly recorded events that
+                    are stored for later decisions and broadcast to interested parties so they can <span class="text-red">bla bla bla...</span>
+                </blockquote>
+            </section>
+
+            <section data-background-image="https://media.giphy.com/media/CiYImHHBivpAs/giphy.gif"></section>
+
+            <section data-background-image="images/how-its-made.jpg"></section>
+
+            <section data-background-color="#3d4852">
+                <blockquote>
+                    EventSourcing is a way to create software models using events.
                 </blockquote>
             </section>
 
@@ -96,15 +98,9 @@
                     <span class="text-white">Read Model(s)</span>
                     <span class="text-white">Process Manager(s)</span>
                 </blockquote>
-            </section>
-
-            <section data-background-color="#3d4852">
-                <blockquote>
-                    Talk is cheap, show me some <span class="text-red">code</span>.<br/><br/>
-                    <!--You can start <span class="text-red">small</span><br/>-->
-                    <!--and gain <span class="text-red">experience</span><br/>-->
-                    <!--to <span class="text-red">ease</span> the process.<br/>-->
-                </blockquote>
+                <aside class="notes">
+                    <p>Talk is cheap, let's look at some code.</p>
+                </aside>
             </section>
 
             <section data-title-hidden data-background-color="#fff">
@@ -165,7 +161,7 @@
             </section>
             <section data-title-hidden data-background-color="#fff">
                     <pre data-line="1" class="language-php"><code data-include="fetch_credit.php" data-filename="transaction-3.php" data-trim>
-                        $credit = fetch_credit();
+                        $credit = fetch_credit(); // context
                         echo "Credit is $credit\n";
                         $purchase = amount_from_request();
 
@@ -181,7 +177,7 @@
                     <pre data-line="3" class="language-php"><code data-include="fetch_credit.php" data-filename="transaction-3.php" data-trim>
                         $credit = fetch_credit();
                         echo "Credit is $credit\n";
-                        $purchase = amount_from_request();
+                        $purchase = amount_from_request(); // input
 
                         if ($credit >= $purchase) {
                             $credit -= $purchase;
@@ -197,7 +193,7 @@
                         echo "Credit is $credit\n";
                         $purchase = amount_from_request();
 
-                        if ($credit >= $purchase) {
+                        if ($credit >= $purchase) { // decision
                             $credit -= $purchase;
                             echo "Purchase of $purchase is OK!";
                         } else {
@@ -212,7 +208,7 @@
                         $purchase = amount_from_request();
 
                         if ($credit >= $purchase) {
-                            $credit -= $purchase;
+                            $credit -= $purchase; // outcome
                             echo "Purchase of $purchase is OK!";
                         } else {
                             echo "Purchase of $purchase has failed.";
@@ -224,7 +220,7 @@
                     In a given <span class="text-red">context</span>,<br/>
                     when handling <span class="text-red">input</span><br/>
                     a <span class="text-red">decision</span> is made<br/>
-                    which then causes a <span class="text-red">result</span>.
+                    which has an <span class="text-red">outcome</span>.
                 </h3>
             </section>
             <!--<section data-title-hidden data-background-color="#fff">-->
@@ -257,10 +253,8 @@
             <section data-title-hidden data-background-color="#fff">
                     <pre class="language-php"><code data-filename="entity_models.php" data-trim>
                         class PersonalBudget {
-                            private $credit;
-                            public function __construct(int $credit) {
-                                $this->credit = $credit;
-                            }
+                            public function __construct(private int $credit) {}
+
                             public function spend(int $amount): bool {
                                 if ($amount > $this->credit) return false;
 
@@ -286,7 +280,7 @@
             </section>
             <section data-title-hidden data-background-color="#fff">
                     <pre data-line="1" class="language-php"><code data-include="bank_entity_repository.php" data-filename="entity_usage.php" data-trim>
-                        $personalBudget = $repository->retrieve($id);
+                        $personalBudget = $repository->retrieve($id); // context
 
                         if ($personalBudget->spend(amount_to_spend())) {
                             echo "Spending succeeded";
@@ -301,7 +295,7 @@
                     <pre data-line="3,5,7" class="language-php"><code data-include="bank_entity_repository.php" data-filename="entity_usage.php" data-trim>
                         $personalBudget = $repository->retrieve($id);
 
-                        if ($personalBudget->spend(amount_to_spend())) {
+                        if ($personalBudget->spend(amount_to_spend())) { // decision
                             echo "Spending succeeded";
                         } else {
                             echo "Spending failed";
@@ -320,7 +314,7 @@
                             echo "Spending failed";
                         }
 
-                        $repository->persist($personalBudget);
+                        $repository->persist($personalBudget); // outcome
                     </code></pre>
             </section>
             <section>
@@ -352,7 +346,17 @@
                         <li>Persist updated <span class="text-red">model</span>.</li>
                     </ol>
                 </h3>
-                <h4 style="margin-left: -2em;">(Entity Modeling)</h4>
+                <h4 style="margin-left: -2em;">(What we're used to)</h4>
+            </section>
+            <section>
+                <h3>
+                    <ol>
+                        <li>Rebuild model from stored events.</li>
+                        <li>Interact with the model.</li>
+                        <li>Store changes in the model.</li>
+                    </ol>
+                </h3>
+                <h4 style="margin-left: -2em;">(Event Sourcing)</h4>
             </section>
             <section>
                 <h3>
@@ -362,7 +366,7 @@
                         <li>Persist/dispatch new <span class="text-red">events</span>.</li>
                     </ol>
                 </h3>
-                <h4 style="margin-left: -2em;">(Event Sourcing)</h4>
+                <h4 style="margin-left: -2em;">(Event Sourcing Speak)</h4>
             </section>
             <section>
                 <img src="images/8-state.svg" />
@@ -441,7 +445,7 @@
             <section data-background-color="#3d4852">
                 <blockquote>
                     <span class="text-red">Event</span><br/>
-                    a value-object; an object that represents a value<br/><br/>
+                    an immutable value-object<br/><br/>
                 </blockquote>
             </section>
 
@@ -501,7 +505,7 @@
             </section><section data-background-color="#3d4852">
             <blockquote>
                 <span class="text-red">Aggregate Root</span><br/>
-                you steer a car by turning the steer, not by turning the individual wheels
+                you steer a car by turning the steer, not by adjusting the wheels
             </blockquote>
         </section>
             <section data-title-hidden data-background-color="#fff">
@@ -531,9 +535,9 @@
 
             public function increaseBudget(int $amount)
             {
+                // traditional CRUD
                 $this->budget += $amount;
             }
-
 
 
 
@@ -550,9 +554,9 @@
 
             public function increaseBudget(int $amount)
             {
+                // event sourced
                 $this->recordThat(new BudgetWasIncreased($amount));
             }
-
 
 
 
@@ -581,25 +585,25 @@ class PersonalBudget
                     </code></pre>
             </section>
 
-            <section data-title-hidden data-background-color="#fff">
-                    <pre class="language-php"><code data-trim>
-class PersonalBudget
-{
-    // ...
+<!--            <section data-title-hidden data-background-color="#fff">-->
+<!--                    <pre class="language-php"><code data-trim>-->
+<!--class PersonalBudget-->
+<!--{-->
+<!--    // ...-->
 
-    protected function apply(object $event)
-    {
-        $parts = explode('\\', get_class($event));
-        $this->{'apply' . end($parts)}($event);
-    }
-
-
+<!--    protected function apply(object $event)-->
+<!--    {-->
+<!--        $parts = explode('\\', get_class($event));-->
+<!--        $this->{'apply' . end($parts)}($event);-->
+<!--    }-->
 
 
 
-}
-                    </code></pre>
-            </section>
+
+
+<!--}-->
+<!--                    </code></pre>-->
+<!--            </section>-->
             <section data-title-hidden data-background-color="#fff">
                     <pre class="language-php"><code data-trim>
 class PersonalBudget
@@ -681,25 +685,25 @@ class PersonalBudget
                     </code></pre>
             </section>
 
-            <section data-title-hidden data-background-color="#fff">
-                    <pre class="language-php"><code data-trim>
-class PersonalBudget
-{
-    protected function applyPurchaseWasMade(
-        PurchaseWasMade $event
-    ) {
-        $this->budget -= $event->amount();
-    }
+<!--            <section data-title-hidden data-background-color="#fff">-->
+<!--                    <pre class="language-php"><code data-trim>-->
+<!--class PersonalBudget-->
+<!--{-->
+<!--    protected function applyPurchaseWasMade(-->
+<!--        PurchaseWasMade $event-->
+<!--    ) {-->
+<!--        $this->budget -= $event->amount();-->
+<!--    }-->
 
 
 
 
 
-    // ...
+<!--    // ...-->
 
-}
-                    </code></pre>
-            </section>
+<!--}-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
             <section data-title-hidden data-background-color="#fff">
                     <pre class="language-php"><code data-include="spend_100_includes.php" data-filename="spending_within_budget.php">
@@ -793,6 +797,28 @@ interface AggregateRootRepository
                             {
                                 $events = $aggregate->releaseEvents();
                                 $aggregateRootId = $aggregate->aggregateRootId();
+
+
+
+
+
+
+
+
+                            }
+                        }
+                    </code></pre>
+            </section>
+
+            <section data-title-hidden data-background-color="#fff">
+                    <pre class="language-php"><code data-trim>
+                        class AggregateRootRepository
+                        {
+                            public function persist(AggregateRoot $aggregate)
+                            {
+                                $events = $aggregate->releaseEvents();
+                                $aggregateRootId = $aggregate->aggregateRootId();
+
                                 $headers = [Header::AGGREGATE_ROOT_ID => $aggregateRootId];
                                 $messages = array_map(function (object $event) use ($headers) {
                                     return new Message($event, $headers);
@@ -813,6 +839,7 @@ interface AggregateRootRepository
                             {
                                 $events = $aggregate->releaseEvents();
                                 $aggregateRootId = $aggregate->aggregateRootId();
+
                                 $headers = [Header::AGGREGATE_ROOT_ID => $aggregateRootId];
                                 $messages = array_map(function (object $event) use ($headers) {
                                     return new Message($event, $headers);
@@ -826,13 +853,14 @@ interface AggregateRootRepository
             </section>
 
             <section data-title-hidden data-background-color="#fff">
-                    <pre data-line="7-10" class="language-php"><code data-trim>
+                    <pre data-line="8-11" class="language-php"><code data-trim>
                         class AggregateRootRepository
                         {
                             public function persist(AggregateRoot $aggregate)
                             {
                                 $events = $aggregate->releaseEvents();
                                 $aggregateRootId = $aggregate->aggregateRootId();
+
                                 $headers = [Header::AGGREGATE_ROOT_ID => $aggregateRootId];
                                 $messages = array_map(function (object $event) use ($headers) {
                                     return new Message($event, $headers);
@@ -846,13 +874,14 @@ interface AggregateRootRepository
             </section>
 
             <section data-title-hidden data-background-color="#fff">
-                    <pre data-line="12-13" class="language-php"><code data-trim>
+                    <pre data-line="13-14" class="language-php"><code data-trim>
                         class AggregateRootRepository
                         {
                             public function persist(AggregateRoot $aggregate)
                             {
                                 $events = $aggregate->releaseEvents();
                                 $aggregateRootId = $aggregate->aggregateRootId();
+
                                 $headers = [Header::AGGREGATE_ROOT_ID => $aggregateRootId];
                                 $messages = array_map(function (object $event) use ($headers) {
                                     return new Message($event, $headers);
@@ -933,90 +962,97 @@ class Message
             </section>
 
             <section data-title-hidden data-background-color="#fff">
-                    <pre class="language-php"><code>
+                    <pre class="language-jsonp"><code data-trim>
+                    {
+                        "headers" {
+                            "aggregate_root_id": "4d975448-d12b-4a2e-bea4-13efd557bd6e",
+                            "event_type": "some_company.namespace.purchase_was_made",
+                            "caused_by": "3cf01840-3d50-4658-b953-b71f66ab4701"
+                        },
+                        "payload": {
+                            "amount": 80
+                        }
+                    }
+                    </code></pre>
+            </section>
+            <section data-title-hidden data-background-color="#fff">
+                    <pre data-line="3-4" class="language-jsonp"><code data-trim>
+                    {
+                        "headers" {
+                            "aggregate_root_id": "4d975448-d12b-4a2e-bea4-13efd557bd6e",
+                            "event_type": "some_company.namespace.purchase_was_made",
+                            "caused_by": "3cf01840-3d50-4658-b953-b71f66ab4701"
+                        },
+                        "payload": {
+                            "amount": 80
+                        }
+                    }
+                    </code></pre>
+            </section>
+            <section data-title-hidden data-background-color="#fff">
+                    <pre data-line="7-9" class="language-jsonp"><code data-trim>
+                    {
+                        "headers" {
+                            "aggregate_root_id": "4d975448-d12b-4a2e-bea4-13efd557bd6e",
+                            "event_type": "some_company.namespace.purchase_was_made",
+                            "caused_by": "3cf01840-3d50-4658-b953-b71f66ab4701"
+                        },
+                        "payload": {
+                            "amount": 80
+                        }
+                    }
+                    </code></pre>
+            </section>
+
+            <section data-title-hidden data-background-color="#fff">
+                <h4>Store it somewhere</h4>
+                    <pre class="language-php"><code data-trim>
 interface MessageRepository
 {
     public function persist(Message ...$messages);
 
     public function retrieveAll(AggregateRootId $id): Generator;
-}
-                    </code></pre>
+}</code></pre>
+                <h5><br/>Can be MySQL, MongoDB, Redis, What-ever!</h5>
             </section>
 
             <section data-title-hidden data-background-color="#fff">
-                    <pre data-line="3-4,6" class="language-sql"><code data-trim>
-CREATE TABLE domain_messages (
-    event_id VARCHAR(36) NOT NULL,
-    event_type VARCHAR(100) NOT NULL,
-    aggregate_root_id VARCHAR(36) NULL,
-    time_of_recording DATETIME(6) NOT NULL,
+                <h4>Store it somewhere</h4>
+                    <pre data-line="2-4" class="language-sql"><code data-trim>
+CREATE TABLE processing_payments (
+    id BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    aggregate_root_id VARCHAR(36) NOT NULL,
     payload JSON NOT NULL,
-    INDEX aggregate_root_id (aggregate_root_id),
-    INDEX time_of_recording (time_of_recording)
-)
+    INDEX aggregate_reconstitution (aggregate_root_id, id ASC)
+);
                     </code></pre>
+                <h5><br/>Am I doing this right, @Willem?</h5>
             </section>
 
             <section data-title-hidden data-background-color="#fff">
-                    <pre class="language-jsonp"><code data-trim>
-                    {
-                        "headers" {
-                            "aggregate_root_id": "4d975448-d12b-4a2e-bea4-13efd557bd6e",
-                            "event_type": "some_company.namespace.purchase_was_made"
-                        },
-                        "payload": {
-                            "amount": 80
-                        }
-                    }
+                <h4>Store it somewhere</h4>
+                    <pre data-line="4" class="language-sql"><code data-trim>
+SELECT payload
+    FROM processing_payments
+
+    WHERE aggregate_root_id = ":aggregate_root_id"
+
+    ORDER BY id ASC
+
                     </code></pre>
-            </section>
-            <section data-title-hidden data-background-color="#fff">
-                    <pre data-line="3" class="language-jsonp"><code data-trim>
-                    {
-                        "headers" {
-                            "aggregate_root_id": "4d975448-d12b-4a2e-bea4-13efd557bd6e",
-                            "event_type": "some_company.namespace.purchase_was_made"
-                        },
-                        "payload": {
-                            "amount": 80
-                        }
-                    }
-                    </code></pre>
-            </section>
-            <section data-title-hidden data-background-color="#fff">
-                    <pre data-line="4" class="language-jsonp"><code data-trim>
-                    {
-                        "headers" {
-                            "aggregate_root_id": "4d975448-d12b-4a2e-bea4-13efd557bd6e",
-                            "event_type": "some_company.namespace.purchase_was_made"
-                        },
-                        "payload": {
-                            "amount": 80
-                        }
-                    }
-                    </code></pre>
-            </section>
-            <section data-title-hidden data-background-color="#fff">
-                    <pre data-line="6-8" class="language-jsonp"><code data-trim>
-                    {
-                        "headers" {
-                            "aggregate_root_id": "4d975448-d12b-4a2e-bea4-13efd557bd6e",
-                            "event_type": "some_company.namespace.purchase_was_made"
-                        },
-                        "payload": {
-                            "amount": 80
-                        }
-                    }
-                    </code></pre>
+                <h5><br/>Am I doing this right, @Willem?</h5>
             </section>
 
             <section data-title-hidden data-background-color="#fff">
+                <h4>Transport it somehow</h4>
                     <pre class="language-php"><code data-trim>
                         interface MessageDispatcher
                         {
                             public function dispatch(Message ...$messages);
-                        }
-                    </code></pre>
+
+
+                        }</code></pre>
+                    <h5><br/>Can be RabbitMQ, Kafka, Sync, What-ever!</h5>
             </section>
             <section data-title-hidden data-background-color="#fff">
                     <pre class="language-php"><code data-trim>
@@ -1185,6 +1221,7 @@ class SynchronousMessageDispatcher implements MessageDispatcher
             </section>
 
             <section data-background-color="#fff">
+                <h3>Consequences</h3>
                 <blockquote>
                     ❌ No implicit view<br/>
                     ❌ Separate setup required<br/>
@@ -1192,6 +1229,13 @@ class SynchronousMessageDispatcher implements MessageDispatcher
                     ✅ Views are very simple<br/>
                     ✅ Use any type of DB<br/>
                 </blockquote>
+                <aside class="notes">
+                    <p>
+                        Now the process is complete, we went from recording events to
+                        notifying consumers. In order to complete the circle, we need to
+                        go into one last part, which is reconstitution.
+                    </p>
+                </aside>
             </section>
 
             <section data-title-hidden data-background-color="#fff">
@@ -1236,17 +1280,17 @@ class SynchronousMessageDispatcher implements MessageDispatcher
                 </blockquote>
             </section>
 
-            <section>
-            <img src="images/15-old-events.svg" />
-            </section>
+<!--            <section>-->
+<!--            <img src="images/15-old-events.svg" />-->
+<!--            </section>-->
 
-            <section>
-            <img src="images/16-aggregate-from-events.svg" />
-            </section>
+<!--            <section>-->
+<!--            <img src="images/16-aggregate-from-events.svg" />-->
+<!--            </section>-->
 
-            <section>
-            <img src="images/17-new-events-from-aggregate.svg" />
-            </section>
+<!--            <section>-->
+<!--            <img src="images/17-new-events-from-aggregate.svg" />-->
+<!--            </section>-->
 
             <section>
                 <!--<h3 class="text-red">Reconstitute the Aggregate</h3>-->
@@ -1313,14 +1357,14 @@ class AggregateRootRepository
                     </code></pre>
             </section>
 
-            <section data-title-hidden data-background-color="#fff">
-                    <pre class="language-sql"><code>
-                SELECT *
-                    FROM `domain_messages`
-                    WHERE `aggregate_id` = :aggregate_id
-                    ORDER BY `time_of_recording` ASC
-                    </code></pre>
-            </section>
+<!--            <section data-title-hidden data-background-color="#fff">-->
+<!--                    <pre class="language-sql"><code>-->
+<!--                SELECT *-->
+<!--                    FROM `domain_messages`-->
+<!--                    WHERE `aggregate_id` = :aggregate_id-->
+<!--                    ORDER BY `time_of_recording` ASC-->
+<!--                    </code></pre>-->
+<!--            </section>-->
             <section data-title-hidden data-background-color="#fff">
                     <pre class="language-php"><code data-trim>
 class PersonalBudget
@@ -1374,178 +1418,187 @@ class PersonalBudget
             </section>
 
             <section>
+                <h3 class="text-left">
+                    In a given <span class="text-red">context</span>,<br/>
+                    when handling <span class="text-red">input</span><br/>
+                    a <span class="text-red">decision</span> is made<br/>
+                    which has an <span class="text-red">outcome</span>.
+                </h3>
+            </section>
+
+            <section>
                 <h2>How about <span class="text-red">tests</span>?</h2>
             </section>
 
-            <section data-background-color="#fff">
-                    <pre class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>
-                        $messageRepository = new InMemoryMessageRepository();
-                        $aggregateRootRepository = new AggregateRootRepository(
-                            PersonalBudget::class,
-                            $messageRepository
-                        );
+<!--            <section data-background-color="#fff">-->
+<!--                    <pre class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>-->
+<!--                        $messageRepository = new InMemoryMessageRepository();-->
+<!--                        $aggregateRootRepository = new AggregateRootRepository(-->
+<!--                            PersonalBudget::class,-->
+<!--                            $messageRepository-->
+<!--                        );-->
 
-                        $id = AggregateRootId::create();
-                        $headers = [Header::AGGREGATE_ROOT_ID => $id];
-                        $messageRepository->persist(
-                            new Message(new BudgetWasIncreased(100), $headers)
-                        );
+<!--                        $id = AggregateRootId::create();-->
+<!--                        $headers = [Header::AGGREGATE_ROOT_ID => $id];-->
+<!--                        $messageRepository->persist(-->
+<!--                            new Message(new BudgetWasIncreased(100), $headers)-->
+<!--                        );-->
 
-                        $budget = $aggregateRootRepository->retrieve($id);
+<!--                        $budget = $aggregateRootRepository->retrieve($id);-->
 
-                        $budget->spend(150);
+<!--                        $budget->spend(150);-->
 
-                        $aggregateRootRepository->persist($budget);
-                        var_dump($messageRepository->lastCommit());
-                    </code></pre>
-            </section>
+<!--                        $aggregateRootRepository->persist($budget);-->
+<!--                        var_dump($messageRepository->lastCommit());-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
-            <section data-background-color="#fff">
-                    <pre data-line="1-5" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>
-                        $messageRepository = new InMemoryMessageRepository();
-                        $aggregateRootRepository = new AggregateRootRepository(
-                            PersonalBudget::class,
-                            $messageRepository
-                        );
+<!--            <section data-background-color="#fff">-->
+<!--                    <pre data-line="1-5" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>-->
+<!--                        $messageRepository = new InMemoryMessageRepository();-->
+<!--                        $aggregateRootRepository = new AggregateRootRepository(-->
+<!--                            PersonalBudget::class,-->
+<!--                            $messageRepository-->
+<!--                        );-->
 
-                        $id = AggregateRootId::create();
-                        $headers = [Header::AGGREGATE_ROOT_ID => $id];
-                        $messageRepository->persist(
-                            new Message(new BudgetWasIncreased(100), $headers)
-                        );
+<!--                        $id = AggregateRootId::create();-->
+<!--                        $headers = [Header::AGGREGATE_ROOT_ID => $id];-->
+<!--                        $messageRepository->persist(-->
+<!--                            new Message(new BudgetWasIncreased(100), $headers)-->
+<!--                        );-->
 
-                        $budget = $aggregateRootRepository->retrieve($id);
+<!--                        $budget = $aggregateRootRepository->retrieve($id);-->
 
-                        $budget->spend(150);
+<!--                        $budget->spend(150);-->
 
-                        $aggregateRootRepository->persist($budget);
-                        var_dump($messageRepository->lastCommit());
-                    </code></pre>
-            </section>
+<!--                        $aggregateRootRepository->persist($budget);-->
+<!--                        var_dump($messageRepository->lastCommit());-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
-            <section data-background-color="#fff">
-                    <pre data-line="7-11" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>
-                        $messageRepository = new InMemoryMessageRepository();
-                        $aggregateRootRepository = new AggregateRootRepository(
-                            PersonalBudget::class,
-                            $messageRepository
-                        );
+<!--            <section data-background-color="#fff">-->
+<!--                    <pre data-line="7-11" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>-->
+<!--                        $messageRepository = new InMemoryMessageRepository();-->
+<!--                        $aggregateRootRepository = new AggregateRootRepository(-->
+<!--                            PersonalBudget::class,-->
+<!--                            $messageRepository-->
+<!--                        );-->
 
-                        $id = AggregateRootId::create();
-                        $headers = [Header::AGGREGATE_ROOT_ID => $id];
-                        $messageRepository->persist(
-                            new Message(new BudgetWasIncreased(100), $headers)
-                        );
+<!--                        $id = AggregateRootId::create();-->
+<!--                        $headers = [Header::AGGREGATE_ROOT_ID => $id];-->
+<!--                        $messageRepository->persist(-->
+<!--                            new Message(new BudgetWasIncreased(100), $headers)-->
+<!--                        );-->
 
-                        $budget = $aggregateRootRepository->retrieve($id);
+<!--                        $budget = $aggregateRootRepository->retrieve($id);-->
 
-                        $budget->spend(150);
+<!--                        $budget->spend(150);-->
 
-                        $aggregateRootRepository->persist($budget);
-                        var_dump($messageRepository->lastCommit());
-                    </code></pre>
-            </section>
+<!--                        $aggregateRootRepository->persist($budget);-->
+<!--                        var_dump($messageRepository->lastCommit());-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
-            <section data-background-color="#fff">
-                    <pre data-line="13" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>
-                        $messageRepository = new InMemoryMessageRepository();
-                        $aggregateRootRepository = new AggregateRootRepository(
-                            PersonalBudget::class,
-                            $messageRepository
-                        );
+<!--            <section data-background-color="#fff">-->
+<!--                    <pre data-line="13" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>-->
+<!--                        $messageRepository = new InMemoryMessageRepository();-->
+<!--                        $aggregateRootRepository = new AggregateRootRepository(-->
+<!--                            PersonalBudget::class,-->
+<!--                            $messageRepository-->
+<!--                        );-->
 
-                        $id = AggregateRootId::create();
-                        $headers = [Header::AGGREGATE_ROOT_ID => $id];
-                        $messageRepository->persist(
-                            new Message(new BudgetWasIncreased(100), $headers)
-                        );
+<!--                        $id = AggregateRootId::create();-->
+<!--                        $headers = [Header::AGGREGATE_ROOT_ID => $id];-->
+<!--                        $messageRepository->persist(-->
+<!--                            new Message(new BudgetWasIncreased(100), $headers)-->
+<!--                        );-->
 
-                        $budget = $aggregateRootRepository->retrieve($id);
+<!--                        $budget = $aggregateRootRepository->retrieve($id);-->
 
-                        $budget->spend(150);
+<!--                        $budget->spend(150);-->
 
-                        $aggregateRootRepository->persist($budget);
-                        var_dump($messageRepository->lastCommit());
-                    </code></pre>
-            </section>
+<!--                        $aggregateRootRepository->persist($budget);-->
+<!--                        var_dump($messageRepository->lastCommit());-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
-            <section data-background-color="#fff">
-                    <pre data-line="15" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>
-                        $messageRepository = new InMemoryMessageRepository();
-                        $aggregateRootRepository = new AggregateRootRepository(
-                            PersonalBudget::class,
-                            $messageRepository
-                        );
+<!--            <section data-background-color="#fff">-->
+<!--                    <pre data-line="15" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>-->
+<!--                        $messageRepository = new InMemoryMessageRepository();-->
+<!--                        $aggregateRootRepository = new AggregateRootRepository(-->
+<!--                            PersonalBudget::class,-->
+<!--                            $messageRepository-->
+<!--                        );-->
 
-                        $id = AggregateRootId::create();
-                        $headers = [Header::AGGREGATE_ROOT_ID => $id];
-                        $messageRepository->persist(
-                            new Message(new BudgetWasIncreased(100), $headers)
-                        );
+<!--                        $id = AggregateRootId::create();-->
+<!--                        $headers = [Header::AGGREGATE_ROOT_ID => $id];-->
+<!--                        $messageRepository->persist(-->
+<!--                            new Message(new BudgetWasIncreased(100), $headers)-->
+<!--                        );-->
 
-                        $budget = $aggregateRootRepository->retrieve($id);
+<!--                        $budget = $aggregateRootRepository->retrieve($id);-->
 
-                        $budget->spend(150);
+<!--                        $budget->spend(150);-->
 
-                        $aggregateRootRepository->persist($budget);
-                        var_dump($messageRepository->lastCommit());
-                    </code></pre>
-            </section>
+<!--                        $aggregateRootRepository->persist($budget);-->
+<!--                        var_dump($messageRepository->lastCommit());-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
-            <section data-background-color="#fff">
-                    <pre data-line="17" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>
-                        $messageRepository = new InMemoryMessageRepository();
-                        $aggregateRootRepository = new AggregateRootRepository(
-                            PersonalBudget::class,
-                            $messageRepository
-                        );
+<!--            <section data-background-color="#fff">-->
+<!--                    <pre data-line="17" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>-->
+<!--                        $messageRepository = new InMemoryMessageRepository();-->
+<!--                        $aggregateRootRepository = new AggregateRootRepository(-->
+<!--                            PersonalBudget::class,-->
+<!--                            $messageRepository-->
+<!--                        );-->
 
-                        $id = AggregateRootId::create();
-                        $headers = [Header::AGGREGATE_ROOT_ID => $id];
-                        $messageRepository->persist(
-                            new Message(new BudgetWasIncreased(100), $headers)
-                        );
+<!--                        $id = AggregateRootId::create();-->
+<!--                        $headers = [Header::AGGREGATE_ROOT_ID => $id];-->
+<!--                        $messageRepository->persist(-->
+<!--                            new Message(new BudgetWasIncreased(100), $headers)-->
+<!--                        );-->
 
-                        $budget = $aggregateRootRepository->retrieve($id);
+<!--                        $budget = $aggregateRootRepository->retrieve($id);-->
 
-                        $budget->spend(150);
+<!--                        $budget->spend(150);-->
 
-                        $aggregateRootRepository->persist($budget);
-                        var_dump($messageRepository->lastCommit());
-                    </code></pre>
-            </section>
+<!--                        $aggregateRootRepository->persist($budget);-->
+<!--                        var_dump($messageRepository->lastCommit());-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
-            <section data-background-color="#fff">
-                    <pre data-line="18" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>
-                        $messageRepository = new InMemoryMessageRepository();
-                        $aggregateRootRepository = new AggregateRootRepository(
-                            PersonalBudget::class,
-                            $messageRepository
-                        );
+<!--            <section data-background-color="#fff">-->
+<!--                    <pre data-line="18" class="language-php"><code data-include="spend_150_includes.php" data-filename="spend_150.php" data-trim>-->
+<!--                        $messageRepository = new InMemoryMessageRepository();-->
+<!--                        $aggregateRootRepository = new AggregateRootRepository(-->
+<!--                            PersonalBudget::class,-->
+<!--                            $messageRepository-->
+<!--                        );-->
 
-                        $id = AggregateRootId::create();
-                        $headers = [Header::AGGREGATE_ROOT_ID => $id];
-                        $messageRepository->persist(
-                            new Message(new BudgetWasIncreased(100), $headers)
-                        );
+<!--                        $id = AggregateRootId::create();-->
+<!--                        $headers = [Header::AGGREGATE_ROOT_ID => $id];-->
+<!--                        $messageRepository->persist(-->
+<!--                            new Message(new BudgetWasIncreased(100), $headers)-->
+<!--                        );-->
 
-                        $budget = $aggregateRootRepository->retrieve($id);
+<!--                        $budget = $aggregateRootRepository->retrieve($id);-->
 
-                        $budget->spend(150);
+<!--                        $budget->spend(150);-->
 
-                        $aggregateRootRepository->persist($budget);
-                        var_dump($messageRepository->lastCommit());
-                    </code></pre>
-            </section>
+<!--                        $aggregateRootRepository->persist($budget);-->
+<!--                        var_dump($messageRepository->lastCommit());-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
             <section data-background-color="#3d4852">
                 <blockquote>
                     <span class="text-red">Given</span><br/>
-                    Certain preconditions<br/>
+                    A context<br/>
                     <span class="text-red">When</span><br/>
                     Handling input<br/>
                     <span class="text-red">Then</span><br/>
-                    There is an output
+                    There is a outcome
                 </blockquote>
             </section>
 
@@ -1602,26 +1655,26 @@ class PersonalBudget
                     </code></pre>
             </section>
 
-            <section data-background-color="#fff">
-                    <pre class="language-php"><code data-trim>
-                        /**
-                         * @test
-                         */
-                        public function it_disallows_to_spend_over_budget()
-                        {
-                            $id = $this->aggregateRootId();
+<!--            <section data-background-color="#fff">-->
+<!--                    <pre class="language-php"><code data-trim>-->
+<!--                        /**-->
+<!--                         * @test-->
+<!--                         */-->
+<!--                        public function it_disallows_to_spend_over_budget()-->
+<!--                        {-->
+<!--                            $id = $this->aggregateRootId();-->
 
-                            $this->given(
-                                new BudgetWasIncreased(100),
-                                new PurchaseWasMade(80)
-                            )->when(
-                                new MakePurchase($id, 40)
-                            )->expectToFail(
-                                new InsufficientFundsException()
-                            );
-                        }
-                    </code></pre>
-            </section>
+<!--                            $this->given(-->
+<!--                                new BudgetWasIncreased(100),-->
+<!--                                new PurchaseWasMade(80)-->
+<!--                            )->when(-->
+<!--                                new MakePurchase($id, 40)-->
+<!--                            )->expectToFail(-->
+<!--                                new InsufficientFundsException()-->
+<!--                            );-->
+<!--                        }-->
+<!--                    </code></pre>-->
+<!--            </section>-->
 
             <section>
                 <h2 class="text-red">When to apply this:</h2>
@@ -1636,9 +1689,44 @@ class PersonalBudget
             </section>
 
             <section>
+                <h2 class="text-red">Additional benefits:</h2>
+                <h3>
+                    <ul>
+                        <li>Insights on historical events</li>
+                        <li>Super scalable</li>
+                        <li>Aligns with event storming</li>
+                        <li>It's super cool and looks great on your resume ;-P</li>
+                    </ul>
+                </h3>
+            </section>
+
+            <section>
+                <h2 class="text-red">Considerations:</h2>
+                <h3>
+                    <ul>
+                        <li>Invest in DDD</li>
+                        <li>Works well with CQRS</li>
+                        <li>Works well with Hexagonal Architecture</li>
+                    </ul>
+                </h3>
+            </section>
+
+            <section>
                 <h2>With Event Sourcing</h2>
                 <h3>Simple tasks are more work.</h3>
-                <h3 class="text-red">Difficult tasks are doable.</h3>
+                <h3 class="text-red">Difficult tasks are possible.</h3>
+            </section>
+
+            <section>
+                <h2>Down-sides</h2>
+                <ul>
+                    <li>Everything is recorded, and so are your failures.</li>
+                    <li>Events outlive your model.</li>
+                    <li>Events are flipping everywhere.</li>
+                    <li>Fewer people know about it.</li>
+                    <li>Reconstitution with many events can become a bottleneck, but there are solutions for that.</li>
+                    <li>It puts software development upside-down and inside-out, which can be uncomfortable.</li>
+                </ul>
             </section>
 
 <!--            <section>-->

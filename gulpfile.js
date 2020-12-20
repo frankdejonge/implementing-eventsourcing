@@ -166,7 +166,13 @@ gulp.task('css-core', () => gulp.src(['css/reveal.scss'])
     .pipe(header(banner))
     .pipe(gulp.dest('./dist')))
 
-gulp.task('css', gulp.parallel('css-themes', 'css-core'))
+gulp.task('css-reset', () => gulp.src(['css/reset.scss'])
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(minify({compatibility: 'ie9'}))
+    .pipe(gulp.dest('./dist')))
+
+gulp.task('css', gulp.parallel('css-themes', 'css-core', 'css-reset'))
 
 gulp.task('qunit', () => {
 

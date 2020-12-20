@@ -16,5 +16,5 @@ $payload = $event1->toPayload();
 $event2 = PurchaseWasMade::fromPayload($payload);
 
 var_dump('same', $event1 === $event2);
-
+fwrite(STDOUT,PHP_EOL);
 var_dump('equal', $event1 == $event2);
